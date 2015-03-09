@@ -6,16 +6,13 @@ import Router from 'react-router'
 import routes from '../client/routes'
 
 let render = (Handler, config) => {
-  // Here we can add some fixtures initial app data and state for client.
-  let data = {}
-  // Set app state here. Isomorphic rendering is safe when stores are stateless.
+  // You can set app state here. Check example in github.com/steida/este.
   let appHtml = React.renderToString(<Handler />)
   let appScriptSrc = config.isProduction
     ? '/build/app.js?v=' + config.version
     : 'http://localhost:8888/build/app.js'
   let scriptsHtml = `
     <script src="${appScriptSrc}"></script>
-    <script>main(${JSON.stringify(data)})</script>
   `
   let title = DocumentTitle.rewind()
   return '<!DOCTYPE html>' + React.renderToStaticMarkup(
