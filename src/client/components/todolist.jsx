@@ -9,7 +9,7 @@ export default React.createClass({
 
   propTypes: {
     // Whenever component prop is an immutable structure, use PureRenderMixin.
-    todos: React.PropTypes.instanceOf(immutable.List)
+    todos: React.PropTypes.instanceOf(immutable.OrderedMap)
   },
 
   render() {
@@ -17,8 +17,8 @@ export default React.createClass({
       <ul id="todo-list">
         {this.props.todos.map((todo, i) => {
           return <TodoItem todo={todo} key={todo.get('id')} />
-          // toArray will not be required for React 0.13
-        }).toArray()}
+          // toObject will not be required for React 0.13
+        }).toObject()}
       </ul>
     )
   }
