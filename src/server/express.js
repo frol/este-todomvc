@@ -1,10 +1,11 @@
 import React from 'react'
 import compression from 'compression'
+import config from './config'
 import express from 'express'
 // import favicon from 'serve-favicon'
 import render from './render'
 
-export default (config) => {
+export default function() {
 
   const app = express()
 
