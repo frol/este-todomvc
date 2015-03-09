@@ -1,9 +1,11 @@
-import flux from 'flux'
+import {Dispatcher} from 'flux'
 
-export default new class Dispatcher extends flux.Dispatcher {
+const dispatcher = new Dispatcher
 
-  dispatch(action: Function, data: Object) {
-    super.dispatch({action, data})
-  }
+export function register(callback: Function): string {
+  return dispatcher.register(callback)
+}
 
+export function dispatch(action: Function, data: ?Object) {
+  dispatcher.dispatch({action, data})
 }

@@ -1,36 +1,36 @@
-import dispatcher from '../dispatcher'
+import {dispatch} from '../dispatcher'
 
-// Note actions are pure functions. No state is allowed in actions.
+// Note actions are state-less. It's must for isomorphic app.
 
 export function addTodo() {
-  dispatcher.dispatch(addTodo)
+  dispatch(addTodo)
 }
 
 // https://babeljs.io/docs/learn-es6/#destructuring
 export function onNewTodoFieldChange({target: {name, value}}) {
-  dispatcher.dispatch(onNewTodoFieldChange, {name, value})
+  dispatch(onNewTodoFieldChange, {name, value})
 }
 
 export function toggleTodo(todo) {
-  dispatcher.dispatch(toggleTodo, todo)
+  dispatch(toggleTodo, todo)
 }
 
 export function destroyTodo(todo) {
-  dispatcher.dispatch(destroyTodo, todo)
+  dispatch(destroyTodo, todo)
 }
 
 export function clearCompleted() {
-  dispatcher.dispatch(clearCompleted)
+  dispatch(clearCompleted)
 }
 
 export function toggleAll(checked) {
-  dispatcher.dispatch(toggleAll, {checked})
+  dispatch(toggleAll, {checked})
 }
 
 export function saveTodo(todo, props) {
-  dispatcher.dispatch(saveTodo, {todo, props})
+  dispatch(saveTodo, {todo, props})
 }
 
 export function addHundredTodos() {
-  dispatcher.dispatch(addHundredTodos)
+  dispatch(addHundredTodos)
 }

@@ -1,8 +1,8 @@
 import * as actions from './actions'
-import dispatcher from '../dispatcher'
 import {Range, Record} from 'immutable'
 import {getRandomString} from '../../lib/getrandomstring'
 import {newTodoCursor, todosCursor} from '../state'
+import {register} from '../dispatcher'
 
 // Note store is state-less. It's must for isomorphic app.
 
@@ -16,8 +16,7 @@ let isCompleted = todo => todo.get('completed')
 
 export const MAX_TODO_TITLE_LENGTH = 42
 
-export const dispatchToken = dispatcher.register((payload) => {
-  let {action, data} = payload
+export const dispatchToken = register(({action, data}) => {
 
   switch (action) {
     case actions.addTodo:
