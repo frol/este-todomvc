@@ -41,7 +41,9 @@ export const dispatchToken = dispatcher.register((payload) => {
 
     case actions.toggleTodo:
       todosCursor(todos => {
-        return todos.update(data.get('id'), (todo) => todo.set('completed', !todo.get('completed')))
+        return todos.update(data.get('id'), (todo) => {
+          return todo.set('completed', !todo.get('completed'))
+        })
       })
       break
 
