@@ -1,10 +1,11 @@
 import State from '../lib/state'
+import {OrderedMap} from 'immutable'
 
 const state = new State({
   newTodo: {
     title: ''
   },
-  todos: []
+  todos: OrderedMap()
 })
 
 export default state
