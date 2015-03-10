@@ -63,7 +63,7 @@ export default React.createClass({
 
     return (
       <DocumentTitle title={'Este.js • TodoMVC'}>
-        <div>
+        <div className="page">
           <RouteHandler />
           <footer id="info">
             <p>Double-click to edit a todo</p>

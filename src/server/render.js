@@ -6,8 +6,7 @@ import Router from 'react-router'
 import routes from '../client/routes'
 
 let render = (Handler, config) => {
-  // You can set app state here. Check example in github.com/steida/este.
-  let appHtml = React.renderToString(<Handler />)
+  let appHtml = `<div id="app">${React.renderToString(<Handler />)}</div>`
   let appScriptSrc = config.isProduction
     ? '/build/app.js?v=' + config.version
     : 'http://localhost:8888/build/app.js'
