@@ -37,10 +37,8 @@ enabled by default.
 
 ## Run
 
-- `gulp` or `npm run dev` run app in development mode
-- `gulp -p` or `npm start` run app in production mode
-- `gulp build -p` or `npm run build` build app for continuous integration (CI)
-- `gulp test` or `npm test` to run tests
+- `gulp` run app in development mode
+- `gulp -p` run app in production mode
 
 ## Todo
 
