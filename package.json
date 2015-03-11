@@ -4,9 +4,6 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "gulp build --production",
-    "dev": "gulp",
-    "start": "gulp -p",
     "test": "gulp test"
   },
   "engines": {
