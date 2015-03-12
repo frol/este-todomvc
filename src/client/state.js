@@ -1,5 +1,4 @@
 import State from '../lib/state'
-import {OrderedMap} from 'immutable'
 
 // Initial app state, can be isomorphic. Check example in github.com/steida/este.
 // const initialState = process.env.IS_BROWSER
@@ -10,8 +9,14 @@ const state = new State({
   newTodo: {
     title: ''
   },
-  todos: OrderedMap()
-})
+  todos: {}
+}, reviver)
+
+function reviver(key, value) {
+  if (key == 'todos')
+    return value.toOrderedMap()
+  return value.toMap()
+}
 
 export default state
 export const newTodoCursor = state.cursor(['newTodo'])
