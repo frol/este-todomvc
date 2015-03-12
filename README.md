@@ -6,7 +6,7 @@
 [![devDependency Status](https://david-dm.org/steida/este-todomvc/dev-status.png)](https://david-dm.org/steida/este-todomvc#info=devDependencies)
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-> ES6 React Flux webpack gulp om-like isomorphic immutable k̶i̶t̶c̶h̶e̶n̶s̶i̶n̶k̶ t̶w̶e̶e̶t̶y̶b̶i̶r̶d̶s̶ TodoMVC [demo](https://este-todomvc.herokuapp.com/).
+> ES6 React Flux webpack gulp om-like isomorphic immutable k̶i̶t̶c̶h̶e̶n̶s̶i̶n̶k̶ t̶w̶e̶e̶t̶y̶b̶i̶r̶d̶s̶ TodoMVC.
 
 > The most cute web app starter kit with zero bus factor. Forget about over-abstracted frameworks, use sheer libraries and leverage standards. Built with [Este.js](https://github.com/steida/este).
 
