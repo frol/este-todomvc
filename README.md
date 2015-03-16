@@ -41,19 +41,6 @@ enabled by default.
 - `gulp` run app in development mode
 - `gulp -p` run app in production mode
 
-## Todo
-
-There is a chance some todos were already implemented in [github.com/steida/este](https://github.com/steida/este).
-
-* [ ] [ESLint](http://eslint.org/), almost [ready](https://github.com/eslint/espree/issues/10).
-* [ ] [flowtype](http://flowtype.org/)
-* [ ] Localization with [formatjs.io](http://formatjs.io)
-* [ ] Sync app state into localStorate across browser tabs/windows.
-* [ ] Global app errors handling with last several states and dispatched actions.
-* [ ] Async actions and [CSP channels](https://github.com/ubolonton/js-csp), [video](https://www.youtube.com/watch?v=W2DgDNQZOwo&list=PLb0IAmt7-GS1cbw4qonlQztYV1TAW0sCr&index=6).
-* [ ] React 0.13 [plain JS class](http://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#plain-javascript-classes).
-* [ ] An optional Closure Tools support.
-
 ## Credit
 
-made by [steida](https://twitter.com/steida)
+made by [Daniel Steigerwald](https://twitter.com/steida)
