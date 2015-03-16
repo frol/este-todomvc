@@ -4,15 +4,13 @@ import {getRandomString} from '../../lib/getrandomstring'
 import {newTodoCursor, todosCursor} from '../state'
 import {register} from '../dispatcher'
 
-// Note store is state-less. It's must for isomorphic app.
-
 const TodoRecord = Record({
   completed: false,
   id: '',
   title: ''
 })
 
-let isCompleted = todo => todo.get('completed')
+const isCompleted = todo => todo.get('completed')
 
 export const MAX_TODO_TITLE_LENGTH = 42
 
@@ -71,10 +69,10 @@ export const dispatchToken = register(({action, data}) => {
       todosCursor(todos => {
         return todos.withMutations(list => {
           Range(0, 100).forEach(i => {
-            let id = getRandomString()
+            const id = getRandomString()
             list.set(id, new TodoRecord({
               completed: false,
-              id: id,
+              id,
               title: `Item #${id}`
             }).toMap())
           })

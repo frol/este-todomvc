@@ -34,7 +34,7 @@ export default React.createClass({
   },
 
   onEditChange(e) {
-    let title = e.target.value.slice(0, MAX_TODO_TITLE_LENGTH)
+    const title = e.target.value.slice(0, MAX_TODO_TITLE_LENGTH)
     this.setState({title: title})
   },
 
@@ -59,7 +59,7 @@ export default React.createClass({
   },
 
   saveTodo() {
-    let title = this.refs.edit.getDOMNode().value.trim()
+    const title = this.refs.edit.getDOMNode().value.trim()
     saveTodo(this.props.todo, {title})
     this.disableEdit()
   },

@@ -9,10 +9,10 @@ export default React.createClass({
     if (!getTodos().size)
       return false
 
-    let completed = getCompleted()
-    let remaining = getRemaining()
+    const completed = getCompleted()
+    const remaining = getRemaining()
     // TODO: Use http://formatjs.io/guide/#messageformat-plural-format
-    let localizedItems = remaining.size == 1 ? 'item' : 'items'
+    const localizedItems = remaining.size == 1 ? 'item' : 'items'
 
     return (
       <footer id="footer">

@@ -10,8 +10,8 @@ export default React.createClass({
   mixins: [ReactRouter.State],
 
   render() {
-    let toggleAllChecked = getTodos().size > 0 && allCompleted()
-    let todos = this.isActive('active')
+    const toggleAllChecked = getTodos().size > 0 && allCompleted()
+    const todos = this.isActive('active')
       ? getRemaining()
       : this.isActive('completed')
         ? getCompleted()

@@ -5,15 +5,15 @@ import React from 'react'
 import Router from 'react-router'
 import routes from '../client/routes'
 
-let render = (Handler, config) => {
-  let appHtml = `<div id="app">${React.renderToString(<Handler />)}</div>`
-  let appScriptSrc = config.isProduction
+function render(Handler, config) {
+  const appHtml = `<div id="app">${React.renderToString(<Handler />)}</div>`
+  const appScriptSrc = config.isProduction
     ? '/build/app.js?v=' + config.version
     : 'http://localhost:8888/build/app.js'
-  let scriptsHtml = `
+  const scriptsHtml = `
     <script src="${appScriptSrc}"></script>
   `
-  let title = DocumentTitle.rewind()
+  const title = DocumentTitle.rewind()
   return '<!DOCTYPE html>' + React.renderToStaticMarkup(
     <Html
       bodyHtml={appHtml + scriptsHtml}
@@ -28,8 +28,8 @@ export default (path, config) => {
 
   return new Promise((resolve, reject) => {
     Router.run(routes, path, (Handler, state) => {
-      let html = render(Handler, config)
-      let isNotFound = state.routes.some(route => route.name == 'not-found')
+      const html = render(Handler, config)
+      const isNotFound = state.routes.some(route => route.name == 'not-found')
       resolve({
         html: html,
         status: isNotFound ? 404: 200
