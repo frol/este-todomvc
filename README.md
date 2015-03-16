@@ -18,7 +18,8 @@
 It handles future JavaScripts with [React JSX](http://facebook.github.io/react/docs/jsx-in-depth.html) syntax spiced by [Flowtype](http://flowtype.org/) type [annotations](http://flowtype.org/docs/type-annotations.html#_) already. Sourcemaps
 enabled by default.
 - [React](http://facebook.github.io/react/), [Flux](https://facebook.github.io/flux/), [react-router](https://github.com/rackt/react-router), [immutable.js](http://facebook.github.io/immutable-js/), and more awesomeness.
-- Isomorphic architecture with state-less stores, server rendering, and routing inside expressjs.
+- Isomorphic architecture with state-less stores, server side rendering, and routing inside expressjs.
+- [jest](https://facebook.github.io/jest) unit testing.
 - Global immutable app state like Om with cursors, so app state can be snapshotted and reloaded. Undo redo is super easy.
 - The state of art performance thanks to [immutable.js](http://facebook.github.io/immutable-js) and [PureRenderMixin](http://facebook.github.io/react/docs/pure-render-mixin.html) combo.
 - Well tuned dev stack based on [gulp.js](http://gulpjs.com/) and [webpack](http://webpack.github.io/) configured both for dev and production.
@@ -44,8 +45,6 @@ enabled by default.
 
 There is a chance some todos were already implemented in [github.com/steida/este](https://github.com/steida/este).
 
-* [x] [CircleCI](https://circleci.com/)
-* [ ] [Jest](https://facebook.github.io/jest)
 * [ ] [ESLint](http://eslint.org/), almost [ready](https://github.com/eslint/espree/issues/10).
 * [ ] [flowtype](http://flowtype.org/)
 * [ ] Localization with [formatjs.io](http://formatjs.io)
