@@ -29,7 +29,6 @@ export const dispatchToken = register(({action, data}) => {
 
     case actions.onNewTodoFieldChange:
       let {name, value} = data
-      console.log('actions.onNewTodoFieldChange')
       switch (name) {
         case 'title':
           value = value.slice(0, MAX_TODO_TITLE_LENGTH)
@@ -61,7 +60,6 @@ export const dispatchToken = register(({action, data}) => {
 
     case actions.saveTodo:
       let {todo, props} = data
-      console.log('action.saveTodo')
       todosCursor(todos => {
         return todos.update(todo.get('id'), (todo) => todo.merge(props))
       })
