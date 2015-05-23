@@ -4,15 +4,10 @@ import state from '../state'
 import {RouteHandler} from 'react-router'
 import {addHundredTodos} from '../todos/actions'
 
-// App states history. It's good to have one, so we can replay user story for
-// bug reporting for example.
-const states = []
-
 // Leverage webpack require goodness for feature toggle based dead code removal.
 require('../../../assets/css/app.styl')
 
 export default React.createClass({
-
   componentDidMount() {
     state.on('change', () => {
       // Try hundreds todos with and without PureRenderMixin.
@@ -27,14 +22,14 @@ export default React.createClass({
     document.addEventListener('keypress', e => {
       if (!e.shiftKey || !e.ctrlKey) return
       switch (e.keyCode) {
-        case 19:
+        case 19: /* s */
           window._appState = state.save()
           window._appStateString = JSON.stringify(window._appState)
           console.log('app state saved')
-          console.log('copy the state to your clipboard by calling copy(_appStateString)')
+          console.log('copy the state to your clipboard by calling copy(_appStateString)')          
           console.log('for dev type _appState and press enter')
           break
-        case 12:
+        case 12: /* l */
           const stateStr = window.prompt('Path the serialized state into the input')
           const newState = JSON.parse(stateStr)
           if (!newState) return
@@ -44,25 +39,7 @@ export default React.createClass({
     })
   },
 
-  storeUndo() {
-    const newState = state.get()
-    const lastState = states[states.length - 1]
-    if (newState === lastState) return
-    states.push(newState)
-  },
-
-  undoButtonIsShow() {
-    return states.length > 1
-  },
-
-  undo() {
-    states.pop()
-    state.set(states.pop())
-  },
-
   render() {
-    this.storeUndo()
-
     return (
       <DocumentTitle title={'Este.js • TodoMVC'}>
         <div className="page">
@@ -96,13 +73,16 @@ export default React.createClass({
             </ul>
             <button onClick={addHundredTodos}>Add Hundred Todos</button>
             <button
-              disabled={!this.undoButtonIsShow()}
-              onClick={() => this.undo()}
+              disabled={!state.canUndo}
+              onClick={() => state.undo()}
             >Undo</button>
+            <button 
+              disabled={!state.canRedo}
+              onClick={() => state.redo()}
+            >Redo</button>
           </div>
         </div>
       </DocumentTitle>
     )
   }
-
 })

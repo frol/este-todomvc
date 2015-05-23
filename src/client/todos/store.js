@@ -18,7 +18,8 @@ export const dispatchToken = register(({action, data}) => {
 
   switch (action) {
     case actions.addTodo:
-      let title = getNewTodo().get('title').trim()
+      //let title = getNewTodo().get('title').trim()
+      let title = data
       if (!title) return
       // Create a nice client unique enough id.
       let id = getRandomString()

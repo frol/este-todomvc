@@ -2,8 +2,8 @@ import {dispatch} from '../dispatcher'
 
 // Note actions are state-less. It's must for isomorphic app.
 
-export function addTodo() {
-  dispatch(addTodo)
+export function addTodo(title) {
+  dispatch(addTodo, title)
 }
 
 // https://babeljs.io/docs/learn-es6/#destructuring
