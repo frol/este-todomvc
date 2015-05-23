@@ -6,6 +6,8 @@ export default class State extends EventEmitter {
   constructor(state, reviver: ?Function) {
     this._state = null
     this._reviver = reviver
+    this._states = []
+    this._statePos = 0;
     this.load(state || {})
   }
 
@@ -18,8 +20,39 @@ export default class State extends EventEmitter {
 
   set(state) {
     if (this._state === state) return
-    this._state = state
+    this._state = state    
+    if (!this.isNewStateSameAsRedo(state)) 
+      this._states.length = this._statePos;    
+    this._states.push(state)
+    this._statePos++;
     this.emit('change', this._state)
+  }
+
+  isNewStateSameAsRedo(state) {
+    if (!this.canRedo) return false
+    return state.equals(this._states[this._statePos])    
+  }
+
+  get canUndo() {
+    return this._statePos > 1;
+  }  
+
+  get canRedo() {
+    return this._statePos < this._states.length;
+  }
+
+  undo() {
+    this.gotostep(this._statePos - 1)    
+  }
+
+  redo() {
+    this.gotostep(this._statePos + 1)    
+  }
+
+  gotostep(pos) {
+    this._statePos = pos;
+    this._state = this._states[pos - 1]
+    this.emit('change', this._state)   
   }
 
   get() {
@@ -43,5 +76,4 @@ export default class State extends EventEmitter {
         return this._state.getIn(path)
     }
   }
-
 }

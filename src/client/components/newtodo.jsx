@@ -12,7 +12,7 @@ export default React.createClass({
 
   onKeyDown(e) {
     if (e.key == 'Enter')
-      addTodo()
+      addTodo(e.target.value)
   },
 
   render() {

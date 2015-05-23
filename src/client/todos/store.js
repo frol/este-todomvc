@@ -18,7 +18,8 @@ export const dispatchToken = register(({action, data}) => {
 
   switch (action) {
     case actions.addTodo:
-      let title = getNewTodo().get('title').trim()
+      //let title = getNewTodo().get('title').trim()
+      let title = data
       if (!title) return
       // Create a nice client unique enough id.
       let id = getRandomString()
@@ -28,6 +29,7 @@ export const dispatchToken = register(({action, data}) => {
 
     case actions.onNewTodoFieldChange:
       let {name, value} = data
+      console.log('actions.onNewTodoFieldChange')
       switch (name) {
         case 'title':
           value = value.slice(0, MAX_TODO_TITLE_LENGTH)
@@ -59,6 +61,7 @@ export const dispatchToken = register(({action, data}) => {
 
     case actions.saveTodo:
       let {todo, props} = data
+      console.log('action.saveTodo')
       todosCursor(todos => {
         return todos.update(todo.get('id'), (todo) => todo.merge(props))
       })
