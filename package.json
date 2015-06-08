@@ -39,7 +39,7 @@
     "react-hot-loader": "^1.1.4",
     "react-router": "^0.12.0",
     "run-sequence": "^1.0.2",
-    "sass-loader": "^0.4.0-beta.1",
+    "sass-loader": "^1.0.2",
     "style-loader": "^0.8.3",
     "stylus-loader": "^0.6.0",
     "todomvc-app-css": "^1.0.0",
